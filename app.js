@@ -117,7 +117,8 @@ function start_game() {
         if (time >= GAME_DURATION || answer_list.length === correct_list.length) {
             clearInterval(interval)
             buttons.forEach(button => button.removeEventListener('click', event_listener_callback_function))
-            result_container.innerHTML = `Finished in ${time.toFixed(1)} seconds you made ${errors} mistakes and left ${correct_list.length - answer_list.length} unanswered`
+            result_container.innerHTML = `Finished in ${time.toFixed(1)} seconds you made ${errors}
+            mistakes and left ${correct_list.length - answer_list.length} unanswered`
         } else control_time_bar(time)
 
     }, 10)
@@ -136,6 +137,7 @@ const setup = () => {
     buttons.forEach(button => {
         button.classList.remove('correct')
         button.classList.remove('mistake')
+        button.classList.remove('blinking-button')
         button.removeEventListener('click', event_listener_callback_function)
     })
 
